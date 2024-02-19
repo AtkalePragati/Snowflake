@@ -1,0 +1,19 @@
+Data Sharing and Data Mesh in Snowflake
+Data Sharing enables you to share specific objects from a database in your account with different Snowflake accounts.
+Shares, which are made by data producers and "imported" by data consumers, allow for the sharing of databases.
+Read-only access is available to all shared database objects between accounts i.e., the objects cannot be modified or deleted, including adding or modifying in shared table data.
+Data sharing between Snowflake accounts that are located in the same region and use the same cloud providers is simple and straight forward.
+Suppose my organization has global existence  and for each country we are using separate Snowflake account on cloud provider (of choice). There might be different functions which still want to share data. How can we enable data sharing between accounts in different regions and different cloud providers. DATA MESH? Right!
+Using a concept known as data mesh, data exchange is also possible between Snowflake accounts that are hosted in the same or separate cloud providers and located in different regions.
+data mesh, what is it? A data mesh is a decentralized data architecture that organizes data according to a particular business area, such as marketing, sales, customer care, and more, giving the creators of a certain dataset more ownership. The producers’ understanding of the domain data positions them to set data governance policies focused on documentation, quality, and access.
+The data mesh is truly characterized as a "socio-technical shift—a new approach in how we acquire, handle, and share data," in the words of Zhamak Dehghani, the term's creator.
+The data mesh federates ownership among domain teams as opposed to the conventional approach, which calls for a single, centralized data engineering team to control everything related to data. These teams are responsible for making their data available to customers in the form of products and for facilitating communication between distributed data that is spread out over several locations.
+
+![image](https://github.com/AtkalePragati/Snowflake/assets/131362817/eee93ef7-dcdb-4902-8e3f-ecabd26786b9)
+
+Above fig. shows data mesh i.e. data is shared throughout multiple regions as well as across the regions and cloud providers, each region with their own account in following cloud provider and regions AWS Southeast_Singapore ,AWS South_Mumbai ,Azure Central-India_Pune. 
+We shared the data in multiple accounts by department. Account in each region has one global department, and each account containing three local departments (Local HR, Local RMG, and Local Sales). 
+Every account has one ORGADMIN role and that role has a access of view of which contains all data from own local single department and other regions local department data respectively. 
+Under each account there are four users with their access policies as per requirement like 
+Global users have access of particular department across all the regions for example global HR department is in AWS South_Mumbai which has access of that the departments in all regions.
+Local users have access of particular departments in each region in accordance of their departments in each region.
